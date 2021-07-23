@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "monaco-project": {
+    "angular-project": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -18,9 +18,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/monaco-project",
+            "customWebpackConfig": {
+              "path": "./extra-webpack.config.js"
+            },
+            "outputPath": "dist/angular-project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,20 +31,34 @@
             "inlineStyleLanguage": "less",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "**/*", "input": "node_modules/monaco-editor", "output": "assets/monaco-editor/" },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.less",
+              "node_modules/@grapecity/spread-sheets/styles/gc.spread.sheets.excel2013white.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/d3.min.js",
+              "src/assets/js/d3.fishbone.js"
+              
+            ],
+            "allowedCommonJsDependencies": [
+              "@grapecity/spread-sheets-resources-zh"
+           ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "10mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -72,10 +89,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "monaco-project:build:production"
+              "browserTarget": "angular-project:build:production"
             },
             "development": {
-              "browserTarget": "monaco-project:build:development"
+              "browserTarget": "angular-project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -107,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "monaco-project"
+  "defaultProject": "angular-project"
 }

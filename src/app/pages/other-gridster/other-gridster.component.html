@@ -1,0 +1,25 @@
+<div class="main-content"> 
+    <div>
+        <span>工具栏: </span>
+        <button (click)="addWidget()">添加</button>
+    </div>
+    <ngx-gridster class="dashboard" #ngx_gridster [options]="gridsterOptions" style="background-color: aliceblue;" [draggableOptions]="{ handlerClass: 'panel-heading', scroll: true }">
+        <ngx-gridster-item
+            *ngFor="let widget of widgets"
+            [(x)]="widget.x"
+            [(y)]="widget.y"
+            [(w)]="widget.w"
+            [(h)]="widget.h"
+            [dragAndDrop]='true'
+            [resizable]='true'
+            (end)="itemEnd($event)"
+        >
+            <div class="panel-heading">
+                <h5 class="panel-title">{{ widget.label }}</h5>
+                <input>
+            </div>
+            
+        </ngx-gridster-item>
+        
+    </ngx-gridster>
+</div>

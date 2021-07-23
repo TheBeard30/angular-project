@@ -1,0 +1,61 @@
+.main-content {
+    width: 100%;
+    height: calc(100% - 50px);
+    flex: 1 0px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+  
+  .dashboard {
+    flex: 1;
+  }
+
+.panel-heading {
+    border-bottom: 1px solid #F0F0F0;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 0;
+    height: 100%;
+}
+.panel-heading .panel-title {
+    padding: 10px;
+    margin: 0;
+}
+
+
+
+.position-highlight .inner {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+
+    background-color: #942654;
+    border: 1px solid transparent;
+    -webkit-transition: background 3s;
+    transition: background 3s;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.gridster-item-inner {
+    position: absolute;
+    background: #fff;
+    border: 1px solid transparent;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    -webkit-transition: background 3s;
+    transition: background 3s;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.is-dragging .gridster-item-inner {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.24), 0 2px 4px rgba(0, 0, 0, 0.48);
+    top: -3px;
+    bottom: 13px;
+}

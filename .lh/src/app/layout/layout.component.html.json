@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/app/layout/layout.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1626932390774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626932596959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,12 @@\n+<!--\n+ * @Author: your name\n+ * @Date: 2021-07-20 14:18:46\n+ * @LastEditTime: 2021-07-22 13:39:51\n+ * @LastEditors: your name\n+ * @Description: In User Settings Edit\n+ * @FilePath: /angular-project/src/app/layout/layout.component.html\n+-->\n <nz-layout class='layout-container'>\n     <nz-sider nzCollapsible [(nzCollapsed)]=\"isCollapsed\" [nzTrigger]=\"null\">\n       <div class=\"logo\">\n         <!-- <img src=\"./assets/image/vue.png\" width=\"100%\" height=\"100%\"> -->\n@@ -13,9 +21,9 @@\n             <li nz-menu-item [nzSelected]=\"selectMenu == 'quill'\" (click)=\"jumpTo($event,'quill')\">quill-editor</li>\n             <li nz-menu-item [nzSelected]=\"selectMenu == 'spread'\" (click)=\"jumpTo($event,'spread')\">电子表格</li>\n           </ul>\n         </li>\n-        <li nz-submenu nzTitle=\"编辑器\" nzIcon=\"\">\n+        <li nz-submenu nzTitle=\"编辑器\" nzIcon=\"laptop\">\n \n         </li>\n       </ul>\n     </nz-sider>\n"
+                },
+                {
+                    "date": 1626932597036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <!--\n  * @Author: your name\n  * @Date: 2021-07-20 14:18:46\n- * @LastEditTime: 2021-07-22 13:39:51\n- * @LastEditors: your name\n+ * @LastEditTime: 2021-07-22 13:43:16\n+ * @LastEditors: Please set LastEditors\n  * @Description: In User Settings Edit\n  * @FilePath: /angular-project/src/app/layout/layout.component.html\n -->\n <nz-layout class='layout-container'>\n"
+                }
+            ],
+            "date": 1626932390774,
+            "name": "Commit-0",
+            "content": "<nz-layout class='layout-container'>\n    <nz-sider nzCollapsible [(nzCollapsed)]=\"isCollapsed\" [nzTrigger]=\"null\">\n      <div class=\"logo\">\n        <!-- <img src=\"./assets/image/vue.png\" width=\"100%\" height=\"100%\"> -->\n      </div>\n      <!-- <div><nz-switch [(ngModel)]=\"darkMenuTheme\"></nz-switch>改变主题</div> -->\n      <ul nz-menu [nzTheme]=\"darkMenuTheme?'dark':'light'\" nzMode=\"inline\">\n        <li nz-submenu nzOpen nzTitle=\"开发测试中\" nzIcon=\"user\">\n          <ul>\n            <li nz-menu-item [nzSelected]=\"selectMenu == 'monaco'\"  (click)=\"jumpTo($event,'monaco')\">monaco编辑器</li>\n            <li nz-menu-item [nzSelected]=\"selectMenu == 'fishbone'\" (click)=\"jumpTo($event,'fishbone')\">鱼骨图</li>\n            <li nz-menu-item [nzSelected]=\"selectMenu == 'other-gridster'\" (click)=\"jumpTo($event,'other-gridster')\">gridster</li>\n            <li nz-menu-item [nzSelected]=\"selectMenu == 'quill'\" (click)=\"jumpTo($event,'quill')\">quill-editor</li>\n            <li nz-menu-item [nzSelected]=\"selectMenu == 'spread'\" (click)=\"jumpTo($event,'spread')\">电子表格</li>\n          </ul>\n        </li>\n        <li nz-submenu nzTitle=\"编辑器\" nzIcon=\"\">\n\n        </li>\n      </ul>\n    </nz-sider>\n    <nz-layout>\n      <nz-header>\n        <i\n          class=\"trigger\"\n          nz-icon\n          [nzType]=\"isCollapsed ? 'menu-unfold' : 'menu-fold'\"\n          (click)=\"isCollapsed = !isCollapsed\"\n        ></i>\n      </nz-header>\n      <nz-content>\n        <nz-breadcrumb nzAutoGenerate>\n            <nz-breadcrumb-item>首页</nz-breadcrumb-item>\n        </nz-breadcrumb>\n        <div class=\"inner-content\">\n            <router-outlet></router-outlet>\n        </div>\n      </nz-content>\n      <nz-footer>李豪珣 ©2021 Implement By Angular,由小白赞助</nz-footer>\n    </nz-layout>\n</nz-layout>\n  \n  \n"
+        }
+    ]
+}

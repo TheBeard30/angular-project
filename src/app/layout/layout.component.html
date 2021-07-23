@@ -1,0 +1,51 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-20 14:18:46
+ * @LastEditTime: 2021-07-22 13:43:16
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /angular-project/src/app/layout/layout.component.html
+-->
+<nz-layout class='layout-container'>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+      <div class="logo">
+        <!-- <img src="./assets/image/vue.png" width="100%" height="100%"> -->
+      </div>
+      <!-- <div><nz-switch [(ngModel)]="darkMenuTheme"></nz-switch>改变主题</div> -->
+      <ul nz-menu [nzTheme]="darkMenuTheme?'dark':'light'" nzMode="inline">
+        <li nz-submenu nzOpen nzTitle="开发测试中" nzIcon="user">
+          <ul>
+            <li nz-menu-item [nzSelected]="selectMenu == 'monaco'"  (click)="jumpTo($event,'monaco')">monaco编辑器</li>
+            <li nz-menu-item [nzSelected]="selectMenu == 'fishbone'" (click)="jumpTo($event,'fishbone')">鱼骨图</li>
+            <li nz-menu-item [nzSelected]="selectMenu == 'other-gridster'" (click)="jumpTo($event,'other-gridster')">gridster</li>
+            <li nz-menu-item [nzSelected]="selectMenu == 'quill'" (click)="jumpTo($event,'quill')">quill-editor</li>
+            <li nz-menu-item [nzSelected]="selectMenu == 'spread'" (click)="jumpTo($event,'spread')">电子表格</li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="编辑器" nzIcon="laptop">
+
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <i
+          class="trigger"
+          nz-icon
+          [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          (click)="isCollapsed = !isCollapsed"
+        ></i>
+      </nz-header>
+      <nz-content>
+        <nz-breadcrumb nzAutoGenerate>
+            <nz-breadcrumb-item>首页</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <div class="inner-content">
+            <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+      <nz-footer>李豪珣 ©2021 Implement By Angular,由小白赞助</nz-footer>
+    </nz-layout>
+</nz-layout>
+  
+  

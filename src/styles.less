@@ -1,1 +1,31 @@
+
+// Custom Theming for NG-ZORRO
+// For more information: https://ng.ant.design/docs/customize-theme/en
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.less";
+
+// Override less variables to here
+// View all variables: https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/components/style/themes/default.less
+
+// @primary-color: #1890ff;
 /* You can add global styles to this file, and also import other style files */
+html,body{
+  height: 100%;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+.label-0{ font-size: 2em; }
+.label-1{ font-size: 1.5em; fill: #111; }
+.label-2{ font-size: 1em; fill: #444; }
+.label-3{ font-size: .9em; fill: #888; }
+.label-4{ font-size: .8em; fill: #aaa; }
+
+.link-0{ stroke: #000; stroke-width: 2px}
+.link-1{ stroke: #333; stroke-width: 1px}
+.link-2, .link-3, .link-4{ stroke: #666; stroke-width: .5px; }
+
+@import 'quill/dist/quill.snow.css';
+

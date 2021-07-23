@@ -3,7 +3,12 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "angular-gridster2": [
+        "extra-modules/angular-gridster2"
+      ]
+    }
   },
   "files": [
     "src/main.ts",
