@@ -11,7 +11,7 @@ export class LayoutComponent implements OnInit {
 
   isCollapsed: boolean = false;
 
-  selectMenu: string | undefined = 'spread';
+  selectMenu: string = 'spread';
 
   darkMenuTheme: boolean = true;
 
@@ -32,7 +32,10 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.queryParams.subscribe(
       data => {
-        this.selectMenu = data.query;
+        if(data && 'query' in data){
+          this.selectMenu = data.query;
+        }
+          
       }
     );
 

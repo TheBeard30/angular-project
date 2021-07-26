@@ -14,8 +14,4 @@ export class AppComponent {
   ){
 
   }
-
-  jumpTo(componentName: string){
-    this.router.navigate([componentName],{queryParams: {query: componentName}});
-  }
 }
