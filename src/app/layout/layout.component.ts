@@ -24,20 +24,17 @@ export class LayoutComponent implements OnInit {
 
   jumpTo($event,componentName: string){
     $event.preventDefault();
-    this.router.navigateByUrl(componentName);
+    this.router.navigate([componentName],{queryParams: {query: componentName}});
   }
 
   
 
   ngOnInit(): void {
-    // this.router.events.subscribe(
-    //   data => {
-    //     if(data instanceof NavigationEnd){
-    //       console.log(data);
-    //       this.selectMenu = data.url.replace('/','');
-    //     }
-    //   }
-    // );
+    this.activeRoute.queryParams.subscribe(
+      data => {
+        this.selectMenu = data.query;
+      }
+    );
 
   }
 
