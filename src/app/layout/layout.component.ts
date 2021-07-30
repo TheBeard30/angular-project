@@ -32,10 +32,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.queryParams.subscribe(
       data => {
-        if(data && 'query' in data){
-          this.selectMenu = data.query;
-        }
-          
+        data && ('query' in data) && (this.selectMenu = data.query); 
       }
     );
 

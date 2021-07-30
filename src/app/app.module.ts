@@ -13,7 +13,6 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { DragComponent } from './pages/drag/drag.component';
 import { OtherGridsterComponent } from './pages/other-gridster/other-gridster.component';
 import { GridsterModule } from 'angular2gridster';
-import { GeometryRegisterLibTestModule } from 'geometry-register-lib-test';
 import { FishboneComponent } from './pages/fishbone/fishbone.component';
 import { QuillEditorComponent } from './pages/quill-editor/quill-editor.component';
 import { NgMonacoComponent } from './pages/ng-monaco/ng-monaco.component';
@@ -27,6 +26,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared/shared.module';
 
+import { GeometryRegisterModule } from "@geominfo/geometry-register";
+
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { TinymceEditorComponent } from './pages/tinymce-editor/tinymce-editor.component';
+
 registerLocaleData(zh);
 @NgModule({
   declarations: [
@@ -38,7 +42,8 @@ registerLocaleData(zh);
     FishboneComponent,
     QuillEditorComponent,
     SpreadComponent,
-    LayoutComponent
+    LayoutComponent,
+    TinymceEditorComponent
   ],
   imports: [
     SharedModule,
@@ -46,7 +51,8 @@ registerLocaleData(zh);
     AppRoutingModule,
     DragDropModule,
     FormsModule,
-    GeometryRegisterLibTestModule,
+    GeometryRegisterModule,
+    EditorModule,
     // GridsterModule,
     GridsterModule.forRoot(),
     MonacoEditorModule.forRoot(monacoConfig),
@@ -54,7 +60,10 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
     
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [
+    { provide: NZ_I18N, useValue: zh_CN },
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

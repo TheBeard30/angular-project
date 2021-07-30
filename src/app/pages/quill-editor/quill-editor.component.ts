@@ -11,7 +11,12 @@ export class QuillEditorComponent implements OnInit {
 
   @ViewChild("container") container: ElementRef;
 
-  constructor() { }
+
+  constructor(
+    private elementRef: ElementRef
+  ) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -43,6 +48,28 @@ export class QuillEditorComponent implements OnInit {
         toolbar: toolbarOptions
       }
     });
+
+    // this.container.nativeElement.querySelector('.ql-editor').addEventListener('click', (event) => {
+    //   event.stopPropagation();
+    //   const height = this.container.nativeElement.offsetHeight - 101;
+    //   this.container.nativeElement.previousSibling.style.top = `${height}px`;
+    //   this.container.nativeElement.previousSibling.style.visibility = 'visible';
+    // });
+    // this.elementRef.nativeElement.querySelector('.editor').onclick = ($event) => {
+    //   $event.stopPropagation();
+    // }
+
+    // this.elementRef.nativeElement.querySelector(':not(.ql-editor,.ql-toolbar)').onclick = ($event) => {
+    //   $event.stopPropagation();
+    //   this.container.nativeElement.previousSibling.style.visibility = 'hidden';
+    // }
+  }
+
+
+
+  clickTextEditor($event){
+    $event.stopPropagation();
+    
   }
 
 }

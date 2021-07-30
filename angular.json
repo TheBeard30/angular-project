@@ -37,6 +37,17 @@
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
                 "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@geominfo/geometry-register/src/assets/",
+                "output": "assets/"
+              },
+              { "glob": "**/*", "input": "node_modules/tinymce", "output": "/tinymce/" },
+              {
+                "glob": "**/*",
+                "input": "src/tinymce/lang",
+                "output": "assets/tinymce/lang/"
               }
             ],
             "styles": [
@@ -45,8 +56,8 @@
             ],
             "scripts": [
               "src/assets/js/d3.min.js",
-              "src/assets/js/d3.fishbone.js"
-              
+              "src/assets/js/d3.fishbone.js",
+              "node_modules/tinymce/tinymce.min.js"
             ],
             "allowedCommonJsDependencies": [
               "@grapecity/spread-sheets-resources-zh"

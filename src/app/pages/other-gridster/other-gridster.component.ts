@@ -44,27 +44,36 @@ export class OtherGridsterComponent implements OnInit {
     responsiveDebounce: 500, // window resize debounce time
     responsiveSizes: true,
     lines: {
-      visible: false,
-      always: false,
+      visible: true,
+      always: true,
       width: 2
     }
   };
+
+  test = 0;
 
   ngOnInit(): void {
   }
 
 
   addWidget(){
+
+    setTimeout(() => this.test++);
     const gridsterItem = {};
     gridsterItem['w'] = 12;
     gridsterItem['h']  = 6;
     gridsterItem['label'] = `test${this.widgets.length + 1}`;
     this.widgets.push(gridsterItem);
-    // this.gridster.reload();
+    this.gridster.reload();
   }
 
   itemEnd($event){
     console.log('测试中>>>',$event);
+  }
+
+
+  deleteWidget(index: number){
+    this.widgets.splice(index,1);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import * as GC from "@grapecity/spread-sheets";
 import '@grapecity/spread-sheets-resources-zh';
 import Worksheet = GC.Spread.Sheets.Worksheet;

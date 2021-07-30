@@ -8,6 +8,7 @@ import { OtherGridsterComponent } from './pages/other-gridster/other-gridster.co
 import { QuillEditorComponent } from './pages/quill-editor/quill-editor.component';
 import { SpreadComponent } from './pages/spread/spread.component';
 import { LayoutComponent } from './layout/layout.component';
+import { TinymceEditorComponent } from './pages/tinymce-editor/tinymce-editor.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
       {path: 'other-gridster', component: OtherGridsterComponent, data: {title: 'other-gridster',breadcrumb: 'other-gridster'}},
       {path: 'fishbone', component: FishboneComponent , data: {title: 'fishbone',breadcrumb: 'fishbone'}},
       {path: 'quill', component: QuillEditorComponent, data: {title: 'quill',breadcrumb: 'quill'}},
-      {path: 'spread', component: SpreadComponent, data: {title: 'spread',breadcrumb: '电子表格'}}
+      {path: 'spread', component: SpreadComponent, data: {title: 'spread',breadcrumb: '电子表格'}},
+      {path: 'tinymce', component: TinymceEditorComponent, data: {title: 'tinymce',breadcrumb: 'tinymce'}}
     ]
   },
   
