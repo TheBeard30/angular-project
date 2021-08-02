@@ -30,6 +30,8 @@ import { GeometryRegisterModule } from "@geominfo/geometry-register";
 
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { TinymceEditorComponent } from './pages/tinymce-editor/tinymce-editor.component';
+import { PowPipe } from './pipe/pow-pipe/pow.pipe';
+import { HighlightDirective } from './directive/highlight/highlight.directive';
 
 registerLocaleData(zh);
 @NgModule({
@@ -43,7 +45,9 @@ registerLocaleData(zh);
     QuillEditorComponent,
     SpreadComponent,
     LayoutComponent,
-    TinymceEditorComponent
+    TinymceEditorComponent,
+    PowPipe,
+    HighlightDirective
   ],
   imports: [
     SharedModule,

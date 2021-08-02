@@ -43,7 +43,7 @@
                 "input": "./node_modules/@geominfo/geometry-register/src/assets/",
                 "output": "assets/"
               },
-              { "glob": "**/*", "input": "node_modules/tinymce", "output": "/tinymce/" },
+              { "glob": "**/*", "input": "node_modules/tinymce", "output": "assets/tinymce/" },
               {
                 "glob": "**/*",
                 "input": "src/tinymce/lang",
