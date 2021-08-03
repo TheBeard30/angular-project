@@ -4,13 +4,15 @@ import { SharedZorro } from './shared-zorro.module';
 import { SpreadSheetsModule } from '@grapecity/spread-sheets-angular';
 import { HighlightDirective } from 'src/app/directive/highlight/highlight.directive';
 import { PowPipe } from 'src/app/pipe/pow-pipe/pow.pipe';
+import { UnlessDirective } from 'src/app/directive/unless/unless.directive';
 
 
 
 @NgModule({
   declarations: [
     PowPipe,
-    HighlightDirective
+    HighlightDirective,
+    UnlessDirective
   ],
   imports: [
     ...SharedZorro,
@@ -21,7 +23,8 @@ import { PowPipe } from 'src/app/pipe/pow-pipe/pow.pipe';
     ...SharedZorro,
     SpreadSheetsModule,
     PowPipe,
-    HighlightDirective
+    HighlightDirective,
+    UnlessDirective
   ]
 })
 export class SharedModule { }
