@@ -30,6 +30,8 @@ import { GeometryRegisterModule } from "@geominfo/geometry-register";
 
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { TinymceEditorComponent } from './pages/tinymce-editor/tinymce-editor.component';
+import { WorkflowComponent } from './pages/antv-editor/workflow/workflow.component';
+import { ERComponent } from './pages/antv-editor/er/er.component';
 
 
 registerLocaleData(zh);
@@ -45,6 +47,8 @@ registerLocaleData(zh);
     SpreadComponent,
     LayoutComponent,
     TinymceEditorComponent,
+    WorkflowComponent,
+    ERComponent,
   ],
   imports: [
     SharedModule,
