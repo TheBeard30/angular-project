@@ -16,8 +16,6 @@ import { WorkflowService } from './service/workflow.service';
     SharedModule,
     GraphEditorRoutingModule, 
   ],
-  providers: [
-    WorkflowService
-  ]
+  providers: []
 })
 export class GraphEditorModule { }

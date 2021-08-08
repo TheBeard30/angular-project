@@ -1,6 +1,6 @@
-export const graphConfig = {
+export const GraphConfig = {
     grid: true,
     background: {
-        color: 'red'
+        color: 'rgba(255, 255, 128, 0.5)'
     }
 } as any;  

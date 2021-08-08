@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { WorkflowService } from '../pages/graph-editor/service/workflow.service';
 
 @Component({
   selector: 'app-layout',
@@ -22,7 +23,8 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private workflowService: WorkflowService
   ){
 
   }
@@ -52,6 +54,10 @@ export class LayoutComponent implements OnInit {
         this.menuOpenList[key] = false;
       }
     }
+  }
+
+  changeCollapse(ev){
+    this.workflowService.subject.next(this.isCollapsed);
   }
 
 }

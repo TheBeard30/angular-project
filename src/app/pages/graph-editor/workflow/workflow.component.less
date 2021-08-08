@@ -1,3 +1,22 @@
 .wrapper{
+    position: relative;
     height: 100%;
+    // border: 1px solid black;
+}
+
+.drawer{
+    position: absolute;
+    width: 300px;
+    background-color: white;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    box-shadow: -2px 3px 3px rgba(0,0,0,0.3);
+    transition: 0.5s;
+}
+
+.none{
+    display: none;
+    transform: translateX(375px);
+    transition: 0.5s;
 }

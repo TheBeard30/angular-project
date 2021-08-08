@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { GraphEditorModule } from '../graph-editor.module';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class WorkflowService {
 
   constructor() { }
 
-  aaa = 'test>>>>>';
+  subject = new Subject<boolean>();
 }

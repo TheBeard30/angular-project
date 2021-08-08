@@ -36,7 +36,7 @@
           class="trigger"
           nz-icon
           [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-          (click)="isCollapsed = !isCollapsed"
+          (click)="(isCollapsed = !isCollapsed) && changeCollapse($event)"
         ></i>
       </nz-header>
       <nz-content>
