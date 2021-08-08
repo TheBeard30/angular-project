@@ -29,6 +29,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "less",
+            "baseHref": "/angular/",
             "assets": [
               "src/favicon.ico",
               "src/assets",

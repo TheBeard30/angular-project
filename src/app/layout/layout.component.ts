@@ -22,9 +22,10 @@ export class LayoutComponent implements OnInit {
 
   }
 
-  jumpTo($event,componentName: string){
+  jumpTo($event,componentName: string,moduleName?: string){
     $event.preventDefault();
-    this.router.navigate([componentName],{queryParams: {query: componentName}});
+    let url = `${moduleName ? moduleName + '/' : ''}${componentName}`;
+    this.router.navigate([url],{queryParams: {query: componentName}});
   }
 
   

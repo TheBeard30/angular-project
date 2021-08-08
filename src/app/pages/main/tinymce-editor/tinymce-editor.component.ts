@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TinyMceConfig} from './tinymce.config';
 
-declare const tinymce;
 
 @Component({
   selector: 'app-tinymce-editor',
@@ -10,7 +9,8 @@ declare const tinymce;
 })
 export class TinymceEditorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   // 编辑器内容
   editorContent = `123456`;
@@ -19,7 +19,7 @@ export class TinymceEditorComponent implements OnInit {
   editorConfig = TinyMceConfig;
 
   ngOnInit(): void {
-    console.log(tinymce);
+
   }
 
 

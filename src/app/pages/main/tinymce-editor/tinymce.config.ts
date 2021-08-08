@@ -52,12 +52,14 @@ const boldTest = (editor: Editor) => {
         }
     });
 
-}
+} 
+
+const url = `${window.location.origin}/angular`;
 
 const TinyMceConfig = {
     // inline: true,
     // skin: 'oxide-dark',
-    base_url: 'assets/tinymce',
+    base_url: `${url}/assets/tinymce`,
     height: 200,
     language: 'zh_CN',
     language_url: 'assets/tinymce/lang/zh_CN.js',

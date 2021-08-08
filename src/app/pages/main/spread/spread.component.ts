@@ -6,7 +6,6 @@ import Workbook = GC.Spread.Sheets.Workbook;
 GC.Spread.Common.CultureManager.culture('zh-cn');
 import {mockData} from './mock.data';
 
-
 const precedentLevelColor = ['#FFFFFF', '#19E093', '#09E8DB', '#12A0D1', '#096CE8', '#0926DE'];
 const dependentLevelColor = ['#FFFFFF', '#ADDE0B', '#E8DD0C', '#D1AD00', '#E8A90C', '#E08804'];
 
@@ -49,7 +48,6 @@ export class SpreadComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		
 	}
 
 	changeDrawStatus(): void{
