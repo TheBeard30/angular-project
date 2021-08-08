@@ -15,10 +15,24 @@ export class LayoutComponent implements OnInit {
 
   darkMenuTheme: boolean = true;
 
+  menuOpenList = {
+    'test': true,
+    'graph': false
+  };
+
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute
   ){
+
+  }
+
+  ngOnInit(): void {
+    this.activeRoute.queryParams.subscribe(
+      data => {
+        data && ('query' in data) && (this.selectMenu = data.query); 
+      }
+    );
 
   }
 
@@ -28,15 +42,16 @@ export class LayoutComponent implements OnInit {
     this.router.navigate([url],{queryParams: {query: componentName}});
   }
 
-  
-
-  ngOnInit(): void {
-    this.activeRoute.queryParams.subscribe(
-      data => {
-        data && ('query' in data) && (this.selectMenu = data.query); 
+  /**
+   * 改变打开的菜单
+   * @param {string} currtMenuName 当前点击的菜单 
+   */
+  openChangeHandler(currtMenuName: string): void{
+    for(let key in this.menuOpenList){
+      if(key != currtMenuName){
+        this.menuOpenList[key] = false;
       }
-    );
-
+    }
   }
 
 }

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 5280",
+    "start": "ng serve --port 5280 --open",
     "build": "ng build --prod --base-href /angular/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

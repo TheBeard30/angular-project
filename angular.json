@@ -61,7 +61,8 @@
               "node_modules/tinymce/tinymce.min.js"
             ],
             "allowedCommonJsDependencies": [
-              "@grapecity/spread-sheets-resources-zh"
+              "@grapecity/spread-sheets-resources-zh",
+              "quill-delta"
            ]
           },
           "configurations": {

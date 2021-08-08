@@ -10,7 +10,7 @@ import { OtherGridsterComponent } from './other-gridster/other-gridster.componen
 import { QuillEditorComponent } from './quill-editor/quill-editor.component';
 import { SpreadComponent } from './spread/spread.component';
 import { TinymceEditorComponent } from './tinymce-editor/tinymce-editor.component';
-import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({

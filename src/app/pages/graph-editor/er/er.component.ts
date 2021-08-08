@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WorkflowService } from '../service/workflow.service';
 
 @Component({
   selector: 'app-er',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ERComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    // private workflowService: WorkflowService
+  ) { }
 
   ngOnInit(): void {
+    // console.log(this.workflowService.aaa);
   }
 
 }

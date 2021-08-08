@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Graph } from '@antv/x6';
+import { WorkflowService } from '../service/workflow.service';
 import { graphConfig } from './graph.config';
 
 @Component({
@@ -15,10 +16,12 @@ export class WorkflowComponent implements OnInit,AfterViewInit {
 
   constructor(
     private elementRef: ElementRef,
-    private renderer2: Renderer2
+    private renderer2: Renderer2,
+    // private workflowService: WorkflowService
   ) { }
 
   ngOnInit(): void { 
+    // this.workflowService.aaa = 'change';
   }
 
 
