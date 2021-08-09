@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { GraphEditorRoutingModule } from './graph-editor-routing.module';
 import { ERComponent } from './er/er.component';
 import { WorkflowComponent } from './workflow/workflow.component';
@@ -18,4 +18,15 @@ import { WorkflowService } from './service/workflow.service';
   ],
   providers: []
 })
-export class GraphEditorModule { }
+export class GraphEditorModule {
+  // 测试forRoot功能
+  static forRoot(): ModuleWithProviders<GraphEditorModule> {
+    return {
+      ngModule: GraphEditorModule,
+      providers: [
+        WorkflowService
+      ]
+    };
+  }
+
+}
