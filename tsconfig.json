@@ -16,7 +16,7 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "emitDecoratorMetadata": false,
+    "emitDecoratorMetadata": true,
     "target": "es2017",
     "module": "es2020",
     "lib": [
