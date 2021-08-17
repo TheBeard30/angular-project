@@ -2,6 +2,7 @@
     <gc-spread-sheets [hostStyle]="hostStyle" (workbookInitialized)="workbookInit($event)"></gc-spread-sheets>
     <div id="statusBar" #statusBar></div>
     <div class="drawer"  [ngClass]="{'none': !drawOpen}">
+        <button nz-button (click)="repaint()">重绘</button>
         <div class="switcher">
             <i *ngIf="drawOpen" nz-icon nzType="menu-fold" nzTheme="outline" (click)='changeDrawStatus()'></i>
             <i *ngIf="!drawOpen" nz-icon nzType="menu-unfold" nzTheme="outline" (click)='changeDrawStatus()'></i>

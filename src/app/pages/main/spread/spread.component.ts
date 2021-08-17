@@ -5,6 +5,7 @@ import Worksheet = GC.Spread.Sheets.Worksheet;
 import Workbook = GC.Spread.Sheets.Workbook;
 GC.Spread.Common.CultureManager.culture('zh-cn');
 import {mockData} from './mock.data';
+import { HttpClient } from '@angular/common/http';
 
 const precedentLevelColor = ['#FFFFFF', '#19E093', '#09E8DB', '#12A0D1', '#096CE8', '#0926DE'];
 const dependentLevelColor = ['#FFFFFF', '#ADDE0B', '#E8DD0C', '#D1AD00', '#E8A90C', '#E08804'];
@@ -47,7 +48,7 @@ export class SpreadComponent implements OnInit {
 
 	}
 
-	ngOnInit(): void {
+	ngOnInit(): void{	
 	}
 
 	changeDrawStatus(): void{
@@ -296,12 +297,6 @@ export class SpreadComponent implements OnInit {
 	}
 
 
-
-
-
-
-
-
 	/**
 	 * 改变从属单元格的背景颜色
 	 * @param {Worksheet} sheet  工作表 
@@ -319,6 +314,16 @@ export class SpreadComponent implements OnInit {
 			node.dependentChildNodes.forEach(child => this.paintDependentCells(sheet,child,clear));
 		}
 		sheet.resumePaint();  
+	}
+
+
+
+	repaint(){
+		this.sheet.suspendPaint();
+		this.sheet.setValue(0,0,'');
+		const value = Math.random() * 1000; 
+		this.sheet.setValue(0,0,value);
+		this.sheet.resumePaint();
 	}
 
 }
