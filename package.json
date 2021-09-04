@@ -6,7 +6,8 @@
     "start": "ng serve --port 5280 --open",
     "build": "ng build --prod --base-href /angular/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -42,10 +43,18 @@
   "devDependencies": {
     "@angular-builders/custom-webpack": "^12.1.0",
     "@angular-devkit/build-angular": "^12.0.5",
+    "@angular-eslint/builder": "12.3.1",
+    "@angular-eslint/eslint-plugin": "12.3.1",
+    "@angular-eslint/eslint-plugin-template": "12.3.1",
+    "@angular-eslint/schematics": "12.3.1",
+    "@angular-eslint/template-parser": "12.3.1",
     "@angular/cli": "~12.0.4",
     "@angular/compiler-cli": "~12.0.4",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "4.28.2",
+    "@typescript-eslint/parser": "4.28.2",
+    "eslint": "^7.26.0",
     "html-webpack-plugin": "^5.3.1",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",

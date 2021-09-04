@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import * as GC from "@grapecity/spread-sheets";
 import '@grapecity/spread-sheets-resources-zh';

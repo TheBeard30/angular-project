@@ -33,7 +33,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              { "glob": "**/*", "input": "node_modules/monaco-editor", "output": "assets/monaco-editor/" },
+              {
+                "glob": "**/*",
+                "input": "node_modules/monaco-editor",
+                "output": "assets/monaco-editor/"
+              },
               {
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
@@ -44,7 +48,11 @@
                 "input": "./node_modules/@geominfo/geometry-register/src/assets/",
                 "output": "assets/"
               },
-              { "glob": "**/*", "input": "node_modules/tinymce", "output": "assets/tinymce/" },
+              {
+                "glob": "**/*",
+                "input": "node_modules/tinymce",
+                "output": "assets/tinymce/"
+              },
               {
                 "glob": "**/*",
                 "input": "src/tinymce/lang",
@@ -63,7 +71,7 @@
             "allowedCommonJsDependencies": [
               "@grapecity/spread-sheets-resources-zh",
               "quill-delta"
-           ]
+            ]
           },
           "configurations": {
             "production": {
@@ -133,9 +141,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "angular-project"
+  "defaultProject": "angular-project",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
