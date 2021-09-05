@@ -23,15 +23,23 @@ export class ERComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(): void{
-    this.graph = new Graph({
-      container: this.er.nativeElement,
-      width: 1160,
-      height: 550,
-      grid: true,
-      background: {
-          color: 'rgba(255, 255, 128, 0.5)'
-      }
-    });
+    setTimeout(() => {
+      const erElement = this.er.nativeElement;
+
+      const rect: DOMRect = erElement.getBoundingClientRect();
+
+      console.log(rect);
+
+      this.graph = new Graph({
+        container: this.er.nativeElement,
+        width: rect.width,
+        height: rect.height,
+        grid: true,
+        background: {
+            color: 'rgba(255, 255, 128, 0.5)'
+        }
+      });
+    })
   
   }
 
