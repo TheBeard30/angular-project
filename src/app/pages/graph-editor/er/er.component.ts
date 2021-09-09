@@ -1,6 +1,10 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Graph } from '@antv/x6';
+import { erData, erEdge } from '../mock/er.data';
+import { registerCustomNode } from './custom-rect.node';
+import { ERUtil } from './er.util';
+import { erConfig } from './graph.config';
 
 @Component({
   selector: 'app-er',
@@ -20,6 +24,7 @@ export class ERComponent implements OnInit,AfterViewInit {
   ) { }
 
   ngOnInit(): void {
+    registerCustomNode();
   }
 
   ngAfterViewInit(): void{
@@ -28,19 +33,19 @@ export class ERComponent implements OnInit,AfterViewInit {
 
       const rect: DOMRect = erElement.getBoundingClientRect();
 
-      console.log(rect);
-
       this.graph = new Graph({
         container: this.er.nativeElement,
         width: rect.width,
         height: rect.height,
-        grid: true,
-        background: {
-            color: 'rgba(255, 255, 128, 0.5)'
-        }
+        ...erConfig
       });
+      ERUtil.addNodes(this.graph,erData);
+      ERUtil.addEdge(this.graph,erEdge);
     })
   
   }
+
+
+  
 
 }
