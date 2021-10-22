@@ -1,11 +1,5 @@
 import {Editor} from 'tinymce';
 
-
-const editorSetup = (editor: Editor) => {
-    insertDimension(editor);
-    boldTest(editor);
-}
-
 const insertDimension = (editor: Editor) => {
     editor.ui.registry.addMenuButton('插入', {
         tooltip: '插入',
@@ -41,6 +35,7 @@ const boldTest = (editor: Editor) => {
         tooltip: 'BoldTest',
         text: 'BoldTest',
         onAction: (api) => {
+            console.log(api);
             const content = editor.selection.getContent();
             const node = editor.selection.getNode();
             console.log('node>>>',node);
@@ -54,11 +49,53 @@ const boldTest = (editor: Editor) => {
 
 } 
 
+
+const openDialog = (editor: Editor) => {
+    editor.ui.registry.addButton('自定义',{
+        tooltip: '自定义',
+        text: '自定义',
+        onAction: (api) => {
+            const template = `<h1 style ='color: red;'>hello world</h1>`;
+            const event = window.event;
+            console.log(event);
+            editor.windowManager.open({
+                title: '', // The dialog's title - displayed in the dialog header
+                body: {
+                  type: 'panel', // The root body type - a Panel or TabPanel
+                  items: [ // A list of panel components
+                    {
+                      type: 'htmlpanel', // A HTML panel component
+                      html: template,
+                      presets: 'document'
+                    }
+                  ]
+                },
+                buttons: []
+            },{inline: 'toolbar',ariaAttrs: true});
+        }
+    });
+}
+
+
+const registerCustomTest = (editor: Editor,element: any) => {
+    editor.ui.registry.addButton('ceshi',{
+        text: 'ceshi',
+        tooltip: 'ceshi',
+        onAction: (api) => {
+            
+            const event = window.event as any;
+            
+            element.style.display = element.style.display == 'block' ? 'none' : 'block';
+            element.style.left = `${event.clientX}px`;
+            element.style.top = `${event.clientY + 18}px`;
+        }
+    })
+}
+
 const url = `${window.location.origin}/angular`;
 
 const TinyMceConfig = {
     // inline: true,
-    // skin: 'oxide-dark',
     base_url: `${url}/assets/tinymce`,
     height: 200,
     language: 'zh_CN',
@@ -66,15 +103,16 @@ const TinyMceConfig = {
     branding: false,
     menubar: false,
     toolbar: [
-        'undo redo | fontselect fontsizeselect | forecolor backcolor | bold italic | underline strikethrough | alignleft aligncenter | alignright alignjustify | alignnone table | styleselect | 插入 BoldTest'
+        'undo redo ceshi| fontselect fontsizeselect | forecolor backcolor | bold italic | underline strikethrough | alignleft aligncenter | alignright alignjustify | alignnone table | styleselect | BoldTest 插入'
     ],
+    plugins: ['table'],
     placeholder: '请输入内容',
     statusbar: false,
-    setup: editorSetup
       
 }; 
 
 
 
 
-export {TinyMceConfig};
+
+export {TinyMceConfig,insertDimension,boldTest,openDialog,registerCustomTest};
