@@ -4,6 +4,7 @@ import { ERComponent } from './er/er.component';
 import { WorkflowComponent } from './workflow/workflow.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { WorkflowService } from './service/workflow.service';
+import { WhiteBoardComponent } from './white-board/white-board.component';
 
 
 
@@ -11,6 +12,7 @@ import { WorkflowService } from './service/workflow.service';
   declarations: [
     WorkflowComponent,
     ERComponent,
+    WhiteBoardComponent,
   ],
   imports: [
     SharedModule,
