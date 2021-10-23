@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-white-board',
@@ -15,8 +15,12 @@ export class WhiteBoardComponent implements OnInit,AfterViewInit {
 
   y: number;
 
-  constructor(
+  canvasWidth: number = 300;
 
+  canvasHeight: number = 150;
+
+  constructor(
+    private elementRef: ElementRef
   ) { }
 
   ngOnInit(): void {
@@ -24,8 +28,19 @@ export class WhiteBoardComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(): void{
+    
+    
     const canvasElement = this.canvasRef.nativeElement;
     const context = canvasElement.getContext('2d');
+
+    setTimeout(() => {
+      const wrapper: HTMLElement = this.elementRef.nativeElement.querySelector('.board');
+      const {width,height} = wrapper.getBoundingClientRect();
+      this.canvasWidth = width;
+      this.canvasHeight = height - 2;
+    });
+
+    
     canvasElement.addEventListener('mousedown', e => {
       this.x = e.offsetX;
       this.y = e.offsetY;
@@ -53,6 +68,14 @@ export class WhiteBoardComponent implements OnInit,AfterViewInit {
   }
 
 
+  /**
+   * 
+   * @param {CanvasRenderingContext2D}  context   上下文
+   * @param {number}                    x1        开始点x坐标
+   * @param {number}                    y1        开始点y坐标
+   * @param {number}                    x2        结束点x坐标
+   * @param {number}                    y2        结束点y坐标
+   */
   drawLine(context: CanvasRenderingContext2D, x1: number, y1: number, x2: number, y2: number) {
     context.beginPath();
     context.strokeStyle = 'black';
