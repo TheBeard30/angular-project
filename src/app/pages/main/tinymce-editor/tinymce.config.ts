@@ -7,7 +7,7 @@ const insertDimension = (editor: Editor) => {
         fetch: (callback) => {
 
             const template = (text: string) => `<span contenteditable='false' style='color: green;cursor: text;font-weight:normal'>[${text}]</span><span contenteditable="false">&ZeroWidthSpace;</span>`;
-            
+
             const items = [
                 {
                     type: 'menuitem',
@@ -26,7 +26,7 @@ const insertDimension = (editor: Editor) => {
             ] as any[];
             callback(items);
         }
-    }); 
+    });
 
 }
 
@@ -47,7 +47,7 @@ const boldTest = (editor: Editor) => {
         }
     });
 
-} 
+}
 
 
 const openDialog = (editor: Editor) => {
@@ -82,9 +82,9 @@ const registerCustomTest = (editor: Editor,element: any) => {
         text: 'ceshi',
         tooltip: 'ceshi',
         onAction: (api) => {
-            
+
             const event = window.event as any;
-            
+
             element.style.display = element.style.display == 'block' ? 'none' : 'block';
             element.style.left = `${event.clientX}px`;
             element.style.top = `${event.clientY + 18}px`;
@@ -95,7 +95,7 @@ const registerCustomTest = (editor: Editor,element: any) => {
 const url = `${window.location.origin}/angular`;
 
 const TinyMceConfig = {
-    // inline: true,
+    inline: true,
     base_url: `${url}/assets/tinymce`,
     height: 200,
     language: 'zh_CN',
@@ -105,11 +105,12 @@ const TinyMceConfig = {
     toolbar: [
         'undo redo ceshi| fontselect fontsizeselect | forecolor backcolor | bold italic | underline strikethrough | alignleft aligncenter | alignright alignjustify | alignnone table | styleselect | BoldTest 插入'
     ],
+    toolbar_sticky: true,
     plugins: ['table'],
     placeholder: '请输入内容',
     statusbar: false,
-      
-}; 
+
+};
 
 
 

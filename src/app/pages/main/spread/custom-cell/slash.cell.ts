@@ -33,24 +33,39 @@ export class SlashCell extends GC.Spread.Sheets.CellTypes.Text{
     const avgDegree = 90 / splitTextArray.length;
     ctx.font = style.font;
     const startPoint = {x,y};
-    if(splitTextArray.length == 2){
-      this.drawLine(ctx,startPoint,{x: x + w,y: y + h});
-      this.drawText(ctx,splitTextArray[0],x + w *7/8, y + h/3);
-      this.drawText(ctx,splitTextArray[1],x + w /2, y + h*3/4);
-    }else{
-      for(let i = 1; i > 2 && i < splitTextArray.length; i++){
-
-        const distance = this.getDistance(h,avgDegree * i);
-        let endPoint = {x: x + distance,y: y + h};
-        if(distance > w){
-          const _h = this.getDistance(w,90 - avgDegree * i);
-          endPoint = {x: x + w,y: y + _h};
-        }
-        this.drawLine(ctx,startPoint,endPoint);
-      }
+    for(let i = 1; i < splitTextArray.length; i++){
+      const endPoint = this.getConnectPoint(startPoint,w,h,i,splitTextArray.length);
+      this.drawLine(ctx,startPoint,endPoint);
     }
 
+    // splitTextArray.forEach((element,index) => {
+    //   this.drawText(ctx,element,x + 100,y + 100,avgDegree * index);
+    // });
+
     ctx.restore();
+  }
+
+
+  /**
+   * 获取连接点
+   * @param {Point}  startPoint  开始点
+   * @param {number} w           宽
+   * @param {number} h           高
+   * @param {number} count       占总面积的个数
+   * @param {number} total       总面积的个数
+   * @returns
+   */
+  private getConnectPoint(startPoint: Point,w: number,h: number,count: number,total: number): Point{
+    const halfArea = w * h / 2;
+    const singleArea = w * h / total;
+    let portionArea = singleArea * count;
+    const getLine = (x: number, area: number) => area * 2 / x;
+    if(portionArea <= halfArea){
+      return {x: startPoint.x + w,y: startPoint.y + getLine(w,portionArea)};
+    }else{
+      portionArea = singleArea * (total - count);
+      return {x: startPoint.x + getLine(h,portionArea),y: startPoint.y + h};
+    }
   }
 
   /**
@@ -93,8 +108,10 @@ export class SlashCell extends GC.Spread.Sheets.CellTypes.Text{
    * @param {number}                    x       x坐标
    * @param {number}                    y       y坐标
    */
-  private drawText(ctx: CanvasRenderingContext2D,text: string,x: number,y: number): void{
+  private drawText(ctx: CanvasRenderingContext2D,text: string,x: number,y: number, degree: number): void{
     ctx.fillText(text,x,y);
+    if(degree > 0)
+      ctx.rotate(degree * (Math.PI / 180));
   }
 
 

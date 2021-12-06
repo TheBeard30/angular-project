@@ -42,13 +42,13 @@ export class GristerComponent implements OnInit {
   //     //   this.gridsterList[sourceIndex] = this.gridsterList[targetIndex];
   //     //   this.gridsterList[targetIndex] = temp;
   //     //   // this.gridsterList = this.gridsterList.slice();
-        
+
   //     //   // console.log(this.gridsterList);
   //     //   // console.log(sourceItem);
   //     //   // console.log(targetItem);
   //     //   // console.log(grid);
 
-        
+
   //     //   // this.gridsterList = this.gridsterList.slice();
   //     //   console.log(this.gridsterList);
   //     // }
@@ -57,7 +57,7 @@ export class GristerComponent implements OnInit {
   //   resizable: {
   //     enabled: true
   //   },
-    
+
   // };
 
 
@@ -72,6 +72,7 @@ export class GristerComponent implements OnInit {
 
   constructor() { }
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
   }
 

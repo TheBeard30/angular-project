@@ -6,19 +6,19 @@
       <ul nz-menu [nzTheme]="darkMenuTheme?'dark':'light'" nzMode="inline">
         <li nz-submenu [(nzOpen)]="menuOpenList.test" (nzOpenChange)="openChangeHandler('test')" nzTitle="开发测试中" nzIcon="user">
           <ul>
-            <li nz-menu-item [nzSelected]="selectMenu == 'monaco'"  (click)="jumpTo($event,'monaco','main')">monaco编辑器</li>
-            <li nz-menu-item [nzSelected]="selectMenu == 'fishbone'" (click)="jumpTo($event,'fishbone','main')">鱼骨图</li>
-            <li nz-menu-item [nzSelected]="selectMenu == 'other-gridster'" (click)="jumpTo($event,'other-gridster','main')">gridster</li>
-            <li nz-menu-item [nzSelected]="selectMenu == 'quill'" (click)="jumpTo($event,'quill','main')">quill-editor</li>
-            <li nz-menu-item [nzSelected]="selectMenu == 'tinymce'" (click)="jumpTo($event,'tinymce','main')">tinymce-editor</li>
-            <li nz-menu-item [nzSelected]="selectMenu == 'spread'" (click)="jumpTo($event,'spread','main')">电子表格</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'monaco'"  (click)="jumpTo($event,'monaco','main')">monaco编辑器</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'fishbone'" (click)="jumpTo($event,'fishbone','main')">鱼骨图</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'other-gridster'" (click)="jumpTo($event,'other-gridster','main')">gridster</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'quill'" (click)="jumpTo($event,'quill','main')">quill-editor</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'tinymce'" (click)="jumpTo($event,'tinymce','main')">tinymce-editor</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'spread'" (click)="jumpTo($event,'spread','main')">电子表格</li>
           </ul>
         </li>
         <li nz-submenu [(nzOpen)]="menuOpenList.graph" (nzOpenChange)="openChangeHandler('graph')" nzTitle="编辑器" nzIcon="laptop">
           <ul>
-            <li nz-menu-item [nzSelected]="selectMenu == 'workflow'"  (click)="jumpTo($event,'workflow','graph')">工作流</li>
-            <li nz-menu-item [nzSelected]="selectMenu == 'er'" (click)="jumpTo($event,'er','graph')">er图</li>
-            <li nz-menu-item [nzSelected]="selectMenu == 'white-board'" (click)="jumpTo($event,'white-board','graph')">白板</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'workflow'"  (click)="jumpTo($event,'workflow','graph')">工作流</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'er'" (click)="jumpTo($event,'er','graph')">er图</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'white-board'" (click)="jumpTo($event,'white-board','graph')">白板</li>
           </ul>
         </li>
       </ul>
@@ -43,5 +43,5 @@
       <nz-footer>李豪珣 ©2021 Implement By Angular,由小白赞助</nz-footer>
     </nz-layout>
 </nz-layout>
-  
-  
+
+

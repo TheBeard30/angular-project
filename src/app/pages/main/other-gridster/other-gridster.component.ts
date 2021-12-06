@@ -26,7 +26,7 @@ export class OtherGridsterComponent implements OnInit {
     dragAndDrop: true, // possible to change items position by drag n drop
     resizable: true, // possible to resize items by drag n drop by item edge/corner
     useCSSTransforms: true, // Uses CSS3 translate() instead of position top/left - significant performance boost.
-    shrink: false,
+    shrink: true,
     cellWidth:40,
     cellHeight: 40,
     widthHeightRatio: 1,
