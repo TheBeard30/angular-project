@@ -61,7 +61,7 @@ export class SpreadService {
 		if(level == undefined){
 			level = 0;
 		}
-        const style = sheet.getStyle(row,col);
+    const style = sheet.getStyle(row,col);
 		const node = {
 			row: row,
 			col: col,
