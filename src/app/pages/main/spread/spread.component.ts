@@ -73,7 +73,7 @@ export class SpreadComponent implements OnInit {
 				sheet.setValue(i,j,rowData[j]);
 			}
 		}
-    sheet.getCell(0,0).cellType(new SlashCell()).value("人员|地区|销量|AAA");
+    sheet.getCell(0,0).cellType(new SlashCell()).value("人员|地区|销量|EE|FF|GG");
 		sheet.resumePaint();
 	}
 

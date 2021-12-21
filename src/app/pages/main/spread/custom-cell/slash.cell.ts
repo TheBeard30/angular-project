@@ -30,18 +30,41 @@ export class SlashCell extends GC.Spread.Sheets.CellTypes.Text{
     if(!ctx) return;
     ctx.save();
     const splitTextArray = value.split("|");
-    const avgDegree = 90 / splitTextArray.length;
     ctx.font = style.font;
     const startPoint = {x,y};
     for(let i = 1; i < splitTextArray.length; i++){
       const endPoint = this.getConnectPoint(startPoint,w,h,i,splitTextArray.length);
       this.drawLine(ctx,startPoint,endPoint);
     }
+    for(let i = 0; splitTextArray.length > 1 && i < splitTextArray.length; i++){
+      const text = splitTextArray[i];
+      ctx.textBaseline = "top";
+      ctx.textAlign = "start";
+      if(i == 0){
+        const _x = x + w/2;
+        if(_x < x + w) ctx.fillText(text,_x,y);
+      }else if(i == splitTextArray.length - 1){
+        const _y = y + (h/3 * 2);
+        if(_y < y + h) ctx.fillText(text,x ,_y);
+      }else{
+        const endPoint = this.getConnectPoint(startPoint,w,h,i,splitTextArray.length);
+        if(endPoint.x == x + w){
+          const degree = Math.atan2(endPoint.y - y,w);
+          const _y = w/2 * Math.tan(degree) + y;
+          ctx.rotate(Math.PI/180 * i * 2);
+          ctx.fillText(text,x + w/2, _y);
+          ctx.restore();
+        }else{
+          const degree = Math.atan2(endPoint.x - x,h);
+          const _x = (h/2) * Math.tan(degree) + x;
+          ctx.textBaseline = "top";
+          ctx.rotate(Math.PI/180 * i * 2);
+          ctx.fillText(text,_x,y + h/2);
+          ctx.restore();
+        }
 
-    // splitTextArray.forEach((element,index) => {
-    //   this.drawText(ctx,element,x + 100,y + 100,avgDegree * index);
-    // });
-
+      }
+    }
     ctx.restore();
   }
 
