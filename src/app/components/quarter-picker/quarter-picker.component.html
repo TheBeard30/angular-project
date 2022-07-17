@@ -1,0 +1,17 @@
+<div class="container" [ngClass]="{'picker-focused': selected}" >
+  <input [placeholder]="placeHolder" class="picker-input" (focusin)="focusIn()"  (focusout)="focusOut()">
+  <i nz-icon nzType="calendar" nzTheme="outline" class="picker-suffix"></i>
+  <div *ngIf="selected" class="picker-panel">
+    <div class="picker-header">
+      <i nz-icon nzType="double-left" nzTheme="outline" class="picker-header-icon"></i>
+      <span>{{2022}}年</span>
+      <i nz-icon nzType="double-right" nzTheme="outline" class="picker-header-icon"></i>
+    </div>
+    <div class="picker-content">
+      <span>Q1</span>
+      <span>Q2</span>
+      <span>Q3</span>
+      <span>Q4</span>
+    </div>
+  </div>
+</div>

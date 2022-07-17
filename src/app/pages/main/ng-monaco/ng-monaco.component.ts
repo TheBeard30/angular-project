@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {option} from "./monaco.config";
+import {monacoSqlAutocomplete} from "./monaco-plugin";
+declare const monaco: any;
 
 @Component({
   selector: 'app-ng-monaco',
@@ -11,7 +13,7 @@ export class NgMonacoComponent implements OnInit {
   constructor() { }
 
   editorOptions = option;
-  code: string = 'select * from dual';
+  code: string = '';
 
 
 
@@ -19,7 +21,7 @@ export class NgMonacoComponent implements OnInit {
 
   }
 
-  monacoInit($event: any) {
-    console.log($event);
+  monacoInit(editor: any) {
+    monacoSqlAutocomplete(monaco, editor);
   }
 }

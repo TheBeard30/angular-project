@@ -1,4 +1,10 @@
 <div class="container">
+  <app-test [test]="templateRef"></app-test>
+  <app-quarter-picker></app-quarter-picker>
+  <app-ngx-table [template]="aaa"></app-ngx-table>
+  <ng-template #aaa let-key let-name="name">
+    <div (click)="clickMe(key,name)" >点击我</div>
+  </ng-template>
   <gc-spread-sheets [hostStyle]="hostStyle" (workbookInitialized)="workbookInit($event)"></gc-spread-sheets>
   <div id="statusBar" #statusBar></div>
   <div class="drawer"  [ngClass]="{'none': !drawOpen}">
@@ -15,4 +21,11 @@
     </div>
   </div>
 </div>
+
+<ng-template #templateRef>
+  <div>
+    测试
+  </div>
+</ng-template>
+
 

@@ -11,6 +11,9 @@ import { QuillEditorComponent } from './quill-editor/quill-editor.component';
 import { SpreadComponent } from './spread/spread.component';
 import { TinymceEditorComponent } from './tinymce-editor/tinymce-editor.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import {TestComponent} from "../../components/test/test.component";
+import {QuarterPickerComponent} from "../../components/quarter-picker/quarter-picker.component";
+import {NgxTableComponent} from "../../components/ngx-table/ngx-table.component";
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     QuillEditorComponent,
     SpreadComponent,
     TinymceEditorComponent,
+    TestComponent,
+    QuarterPickerComponent,
+    NgxTableComponent
   ],
   imports: [
     SharedModule,

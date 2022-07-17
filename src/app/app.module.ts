@@ -20,14 +20,34 @@ import { GridsterModule } from 'angular2gridster';
 import { monacoConfig } from './monaco.config';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { HomeComponent } from './pages/home/home.component';
+import {HomeWorkspaceQuickCreateComponent} from "./pages/home/home-workspace-quick-create.component";
+import {HomeWorkspaceListComponent} from "./pages/home/home-workspace-list.component";
+import {HomeWorkspaceRecentVisitComponent} from "./pages/home/home-workspace-recent-visit.component";
+import {HomeWorkspaceComponent} from "./pages/home/home-workspace.component";
+import {HomeWorkspaceMonitoringIndicatorComponent} from "./pages/home/home-workspace-monitoring-indicator.component";
+import {HomeWorkspaceAccessStatisticsComponent} from "./pages/home/home-workspace-access-statistics.component";
 
 
 
 registerLocaleData(zh);
+
+
+const HomeComponents = [
+  HomeComponent,
+  HomeWorkspaceComponent,
+  HomeWorkspaceListComponent,
+  HomeWorkspaceQuickCreateComponent,
+  HomeWorkspaceRecentVisitComponent,
+  HomeWorkspaceMonitoringIndicatorComponent,
+  HomeWorkspaceAccessStatisticsComponent
+]
+
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    ...HomeComponents,
   ],
   imports: [
     BrowserModule,
@@ -39,11 +59,11 @@ registerLocaleData(zh);
     MainModule,
     GraphEditorModule,
     GridsterModule.forRoot(),
-    MonacoEditorModule.forRoot(monacoConfig),
+    MonacoEditorModule.forRoot(),
   ],
   providers: [
-    { provide: NZ_I18N, useValue: zh_CN },
-    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+    {provide: NZ_I18N, useValue: zh_CN},
+    {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js'}
   ],
   bootstrap: [AppComponent]
 })

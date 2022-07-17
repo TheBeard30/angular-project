@@ -9,6 +9,7 @@ import Workbook = GC.Spread.Sheets.Workbook;
 GC.Spread.Common.CultureManager.culture('zh-cn');
 import {BaseData, mockData} from './mock.data';
 import { HttpClient } from '@angular/common/http';
+import {GridCoordinate} from "./custom-formula/GridCoordinate";
 
 
 @Component({
@@ -74,7 +75,31 @@ export class SpreadComponent implements OnInit {
 			}
 		}
     sheet.getCell(0,0).cellType(new SlashCell()).value("人员|地区|销量|EE|FF|GG");
-		sheet.resumePaint();
+
+    sheet.addSpan(20,6,5,5);
+
+    console.log(sheet.getDefaultStyle());
+
+    sheet.getCell(2,2).font("normal normal 14px 楷体");
+
+    sheet.setValue(1,1,'李豪珣');
+    sheet.setValue(2,2,'李豪珣');
+
+    sheet.getStyle(2,2).font = "normal normal 14px 楷体";
+
+    // const style = new GC.Spread.Sheets.Style();
+    // style.backColor = "green";
+    //
+    // sheet.setStyle(20,6,style);
+
+
+    const gridCoordinate = new GridCoordinate();
+
+    this.sheet.addCustomFunction(gridCoordinate);
+
+    sheet.setFormula(8,8,`gridCoordinate(A1,A2,2)/(A4 + 1)`);
+
+    sheet.resumePaint();
 	}
 
 	/**
@@ -121,6 +146,9 @@ export class SpreadComponent implements OnInit {
     this.sheet.reset();
   }
 
+  clickMe(key: any,name: string) {
+   alert(`${key},${name}`);
+  }
 }
 
 

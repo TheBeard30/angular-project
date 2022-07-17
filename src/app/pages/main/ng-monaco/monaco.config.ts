@@ -1,6 +1,6 @@
 export const option = {
-  theme: 'myTheme',
-  language: 'mySql',
+  theme: 'vs-dark',
+  language: 'sql',
   foldingStrategy: 'indentation',               // 显示缩进
   folding: true,                                // 启用代码折叠功能
   showFoldingControls: 'always',                // 默认显示装订线
