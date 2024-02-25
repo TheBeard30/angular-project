@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as GC from "@grapecity/spread-sheets";
 import Worksheet = GC.Spread.Sheets.Worksheet;
 import Workbook = GC.Spread.Sheets.Workbook;
+import StatusBar = GC.Spread.Sheets.StatusBar.StatusBar;
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class SpreadService {
 	 * 绑定选择改变事件
 	 * @param {Worksheet} sheet  工作表
 	 */
-	bindSelectionChanged(sheet: Worksheet): void{
+	bindSelectionChanged(sheet: Worksheet,statusBar: StatusBar): void{
 		let previousDependentTree: TreeNode,previousPrecedentTree: TreeNode;
 		sheet.bind(GC.Spread.Sheets.Events.SelectionChanged,(event:{[p: string]: any},data: {[p: string]: any}) => {
 			if(previousDependentTree || previousPrecedentTree){
@@ -46,6 +47,10 @@ export class SpreadService {
 
 		});
 
+		sheet.bind(GC.Spread.Sheets.Events.CellClick,(ev,data) => {
+
+
+    });
 	}
 
 

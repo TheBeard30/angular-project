@@ -9,7 +9,9 @@
     <tr *ngFor="let data of tableData">
       <td>{{data.test}}</td>
       <td>
-        <ng-container *ngTemplateOutlet="template;context: {$implicit: data.key,name: data.name}"></ng-container>
+        <ng-container *ngTemplateOutlet="template;context: {$implicit: data.key,name: data.name}">
+
+        </ng-container>
       </td>
     </tr>
   </tbody>

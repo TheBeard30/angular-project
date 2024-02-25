@@ -10,7 +10,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { GridsterModule } from 'angular2gridster';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     EditorModule,
   ],
   providers: [
-    
+    DatePipe
   ],
   exports: [
     ...SharedZorro,
@@ -36,7 +36,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HighlightDirective,
     FormsModule,
     CommonModule,
-    ReactiveFormsModule,  
+    ReactiveFormsModule,
     UnlessDirective,
     EditorModule,
     GridsterModule,

@@ -1,17 +1,17 @@
 <div class="container" [ngClass]="{'picker-focused': selected}" >
-  <input [placeholder]="placeHolder" class="picker-input" (focusin)="focusIn()"  (focusout)="focusOut()">
+  <input [placeholder]="placeHolder" [(ngModel)]="inputValue" class="picker-input" (focusin)="focusIn()"  (focusout)="focusOut()">
   <i nz-icon nzType="calendar" nzTheme="outline" class="picker-suffix"></i>
   <div *ngIf="selected" class="picker-panel">
     <div class="picker-header">
-      <i nz-icon nzType="double-left" nzTheme="outline" class="picker-header-icon"></i>
-      <span>{{2022}}年</span>
-      <i nz-icon nzType="double-right" nzTheme="outline" class="picker-header-icon"></i>
+      <i nz-icon nzType="double-left" nzTheme="outline" class="picker-header-icon" (click)="prev()"></i>
+      <span>{{currentYear}}年</span>
+      <i nz-icon nzType="double-right" nzTheme="outline" class="picker-header-icon" (click)="next()"></i>
     </div>
     <div class="picker-content">
-      <span>Q1</span>
-      <span>Q2</span>
-      <span>Q3</span>
-      <span>Q4</span>
+      <span (click)="selectQuarter('Q1')">Q1</span>
+      <span (click)="selectQuarter('Q2')">Q2</span>
+      <span (click)="selectQuarter('Q3')">Q3</span>
+      <span (click)="selectQuarter('Q4')">Q4</span>
     </div>
   </div>
 </div>

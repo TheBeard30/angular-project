@@ -1,3 +1,9 @@
+<!--<button (click)="openCamera()">打开摄像头</button>-->
+<!--<video width="300" height="300" id="video">-->
+<!--</video>-->
 <div class='container'>
-    <div id="er-graph" #er class="er"></div>
+  <button nz-button (click)="export()" style="width: 150px;z-index: 10">控制台输出</button>
+  <app-toolbar [graph]="graph"></app-toolbar>
+  <div id="er-graph" #er class="er"></div>
+  <div #minimap class="minimap"></div>
 </div>

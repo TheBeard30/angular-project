@@ -27,5 +27,41 @@ html,body{
 .link-1{ stroke: #333; stroke-width: 1px}
 .link-2, .link-3, .link-4{ stroke: #666; stroke-width: .5px; }
 
-@import 'quill/dist/quill.snow.css';
 
+
+:root{
+  --toolbar-background: rgba(0,0,0,0.8);
+  --toolbar-color: #FFFFFF;
+}
+
+.dark{
+  --toolbar-background: rgba(255,255,255,0.5);
+  --toolbar-color: #000000;
+}
+
+
+.edge-label-container{
+  cursor: pointer;
+  position: relative;
+}
+
+.diamond{
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  transform: rotate(45deg);
+  display: inline-block;
+  position: relative;
+  background: #fff;
+}
+.cross{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background: #4D7AE3;
+  left: 0;
+  bottom: 0;
+}
+.right{
+  left: -9.5px;
+}

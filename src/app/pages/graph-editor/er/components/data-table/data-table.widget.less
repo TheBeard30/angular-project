@@ -1,0 +1,45 @@
+.container{
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #4D7AE3;
+  border-radius: 5px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+  label{
+    padding-right: 5px;
+  }
+
+  .table-name{
+    background: #4D7AE3;
+    color: #FFFFFF;
+    padding: 5px;
+
+    .table-name-extra{
+      float: right;
+      img{
+        height: 18px;
+        &:first-child{
+          padding-right: 3px;
+        }
+      }
+    }
+  }
+
+
+  .field-container{
+    max-height: 300px;
+    overflow: auto;
+
+    .field-item{
+      padding: 5px;
+      border-bottom: 1px solid #E5E6EB;
+    }
+    .field-item:last-child{
+      border-bottom: none;
+    }
+  }
+
+  .icon{
+    width: 16px;
+  }
+}

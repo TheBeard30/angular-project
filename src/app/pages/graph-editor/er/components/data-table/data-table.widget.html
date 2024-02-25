@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="table-name">
+    <label nz-checkbox [nzIndeterminate]="indeterminate" [(nzChecked)]="allChecked" (nzCheckedChange)="allCheckedChange($event)"></label>
+    {{data.tableName}}
+    <span class="table-name-extra">
+      <img src="assets/svg/view-all.svg" alt="">
+      <img src="assets/svg/more.svg" alt="">
+    </span>
+  </div>
+  <div class="field-container">
+    <ng-container *ngFor="let field of data.fieldList;let i = index;">
+      <div class="field-item">
+        <label nz-checkbox [(nzChecked)]="field.checked" (nzCheckedChange)="fieldCheckedChange($event)"></label>
+        <ng-container *ngTemplateOutlet="icon;context: {$implicit: field.type}"></ng-container>
+        {{field.name}}
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #icon let-type>
+  <img *ngIf="type == 'STRING'" class="icon" src="assets/svg/string.svg" alt="">
+  <img *ngIf="type == 'NUMBER'" class="icon" src="assets/svg/number.svg" alt="">
+  <img *ngIf="type == 'DATE'" class="icon" src="assets/svg/date.svg" alt="">
+</ng-template>

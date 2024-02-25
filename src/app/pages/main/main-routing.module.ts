@@ -8,6 +8,7 @@ import { OtherGridsterComponent } from './other-gridster/other-gridster.componen
 import { QuillEditorComponent } from './quill-editor/quill-editor.component';
 import { SpreadComponent } from './spread/spread.component';
 import { TinymceEditorComponent } from './tinymce-editor/tinymce-editor.component';
+import {TesseractComponent} from "./tesseract/tesseract.component";
 
 const routes: Routes = [
   {path: '',pathMatch: 'full', redirectTo: 'spread'},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'quill', component: QuillEditorComponent, data: {title: 'quill',breadcrumb: 'quill'}},
   {path: 'spread', component: SpreadComponent, data: {title: 'spread',breadcrumb: '电子表格'}},
   {path: 'tinymce', component: TinymceEditorComponent, data: {title: 'tinymce',breadcrumb: 'tinymce'}},
+  {path: 'tesseract', component: TesseractComponent, data: {title: 'tesseract',breadcrumb: 'tesseract'}},
 ];
 
 @NgModule({

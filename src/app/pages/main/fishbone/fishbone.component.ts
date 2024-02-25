@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import { WorkSpaceInfo, WorkspaceToken } from 'src/app/global/workspace.token';
 import {fishboneData} from './fishbone.data';
 
 // import * as d3 from 'd3';
@@ -9,31 +10,33 @@ declare const d3;
   templateUrl: './fishbone.component.html',
   styleUrls: ['./fishbone.component.less']
 })
-export class FishboneComponent implements OnInit {
+export class FishboneComponent {
 
-  @ViewChild('fish') fishboneEle: ElementRef; 
+  @ViewChild('fish') fishboneEle: ElementRef;
 
-  constructor() { }
+  constructor(
+    @Inject(WorkspaceToken)private workspaceInfo: WorkSpaceInfo
+  ) {
 
-  ngOnInit(): void {
-
-    
   }
 
+
+
   ngAfterViewInit(){
+    this.workspaceInfo.id = 34567;
     // create the configurable selection modifier
     //@ts-ignore
     const fishbone = d3.fishbone();
 
-    
-      
+
+
     // load the data
     //@ts-ignore
     // the most reliable way to get the screen size
     const size = (function(){
       return {width: this.offsetWidth, height: 900};
     }).bind(this.fishboneEle.nativeElement),
-  
+
     svg = d3.select(this.fishboneEle.nativeElement)
     .append("svg")
     // firefox needs a real size
@@ -45,7 +48,7 @@ export class FishboneComponent implements OnInit {
     .call(fishbone.defaultArrow)
     // call the selection modifier
     .call(fishbone);
-    
+
     // this is the actual `force`: just start it
     fishbone.force().start();
     setTimeout(() => {
@@ -54,8 +57,8 @@ export class FishboneComponent implements OnInit {
         .start();
       svg.attr(size())
     },16);
-  
-  
+
+
   // handle resizing the window
   d3.select(window).on("resize", function(){
     fishbone.force()

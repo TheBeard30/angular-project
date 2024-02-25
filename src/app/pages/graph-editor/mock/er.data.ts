@@ -25,6 +25,73 @@ const erData = [
 const erEdge = [
     {source: 'node_1', target: 'node_2'},
     {source: 'node_2', target: 'node_3'}
-]; 
+];
 
 export {erData,erEdge};
+
+
+export const ER_MOCK_DATA = [
+  {
+    tableName: '学生',
+    fieldList: [
+      {
+        name: 'ID',
+        type: 'STRING',
+      },
+      {
+        name: 'Name',
+        type: 'STRING',
+      },
+      {
+        name: 'Class',
+        type: 'NUMBER',
+      },
+      {
+        name: 'GENDER',
+        type: 'DATE',
+      }
+    ]
+  },
+  {
+    tableName: '课程',
+    fieldList: [
+      {
+        name: 'ID',
+        type: 'STRING',
+      },
+      {
+        name: 'Name',
+        type: 'STRING',
+      },
+      {
+        name: 'StudentID',
+        type: 'STRING',
+      },
+      {
+        name: 'TeacherID',
+        type: 'STRING',
+      },
+      {
+        name: 'Description',
+        type: 'STRING',
+      },
+    ]
+  },
+  {
+    tableName: '老师',
+    fieldList: [
+      {
+        name: 'ID',
+        type: 'STRING',
+      },
+      {
+        name: 'Name',
+        type: 'STRING',
+      },
+      {
+        name: 'Age',
+        type: 'STRING',
+      }
+    ]
+  }
+];

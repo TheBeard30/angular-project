@@ -12,6 +12,7 @@
             <li nz-menu-item [nzSelected]="selectMenu === 'quill'" (click)="jumpTo($event,'quill','main')">quill-editor</li>
             <li nz-menu-item [nzSelected]="selectMenu === 'tinymce'" (click)="jumpTo($event,'tinymce','main')">tinymce-editor</li>
             <li nz-menu-item [nzSelected]="selectMenu === 'spread'" (click)="jumpTo($event,'spread','main')">电子表格</li>
+            <li nz-menu-item [nzSelected]="selectMenu === 'tesseract'" (click)="jumpTo($event,'tesseract','main')">tesseract</li>
           </ul>
         </li>
         <li nz-submenu [(nzOpen)]="menuOpenList.graph" (nzOpenChange)="openChangeHandler('graph')" nzTitle="编辑器" nzIcon="laptop">

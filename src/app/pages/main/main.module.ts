@@ -14,6 +14,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import {TestComponent} from "../../components/test/test.component";
 import {QuarterPickerComponent} from "../../components/quarter-picker/quarter-picker.component";
 import {NgxTableComponent} from "../../components/ngx-table/ngx-table.component";
+import { TesseractComponent } from './tesseract/tesseract.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {NgxTableComponent} from "../../components/ngx-table/ngx-table.component"
     TinymceEditorComponent,
     TestComponent,
     QuarterPickerComponent,
-    NgxTableComponent
+    NgxTableComponent,
+    TesseractComponent
   ],
   imports: [
     SharedModule,

@@ -1,0 +1,29 @@
+<div class="container">
+  <nz-upload [(nzFileList)]="fileList"
+             nzListType="picture-card"
+             [nzPreview]="handlePreview">
+    <div>
+      <span nz-icon nzType="plus"></span>
+      <div style="margin-top: 8px">上传</div>
+    </div>
+  </nz-upload>
+  <button nz-button (click)="clickMethod()">识别</button>
+  <div class="recognize-container">
+<!--    <h2>识别区</h2>-->
+    <textarea nz-input
+              [nzAutosize]="{ minRows: 6, maxRows: 10 }"
+              [(ngModel)]="content"
+    ></textarea>
+  </div>
+</div>
+
+<nz-modal
+  [nzVisible]="previewVisible"
+  [nzContent]="modalContent"
+  [nzFooter]="null"
+  (nzOnCancel)="previewVisible = false"
+>
+  <ng-template #modalContent>
+    <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+  </ng-template>
+</nz-modal>

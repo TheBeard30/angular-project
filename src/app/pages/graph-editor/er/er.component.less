@@ -1,6 +1,44 @@
 .container{
-    height: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
 }
 .er{
-    height: 100%;
+  height: 100%;
+  flex: 1;
+}
+app-toolbar{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.minimap{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+
+.diamond{
+  width: 30px;
+  height: 30px;
+  border: 1px solid #4D7AE3;
+  transform: rotate(45deg);
+  display: inline-block;
+  position: relative;
+}
+.cross{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background: #4D7AE3;
+  left: 0;
+  bottom: 0;
+}
+.right{
+  left: -9.5px;
 }

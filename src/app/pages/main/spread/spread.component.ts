@@ -1,7 +1,8 @@
+import { WorkspaceToken } from './../../../global/workspace.token';
 import { SpreadService } from './../../../service/spread.service';
 import { SlashCell } from './custom-cell/slash.cell';
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, Renderer2, NgZone, AfterViewInit, ChangeDetectionStrategy, Inject } from '@angular/core';
 import * as GC from "@grapecity/spread-sheets";
 import '@grapecity/spread-sheets-resources-zh';
 import Worksheet = GC.Spread.Sheets.Worksheet;
@@ -10,6 +11,8 @@ GC.Spread.Common.CultureManager.culture('zh-cn');
 import {BaseData, mockData} from './mock.data';
 import { HttpClient } from '@angular/common/http';
 import {GridCoordinate} from "./custom-formula/GridCoordinate";
+import { WorkSpaceInfo } from 'src/app/global';
+import StatusBar = GC.Spread.Sheets.StatusBar.StatusBar;
 
 
 @Component({
@@ -25,19 +28,24 @@ export class SpreadComponent implements OnInit {
 	// 工作表
 	sheet: Worksheet;
 
+	statusBar: StatusBar;
+
 	hostStyle = {
 		width: '100%',
 		height: 'calc(100% - 61px)'
 	};
 
-	@ViewChild("statusBar") statusBar: ElementRef;
+	@ViewChild("statusBar") statusBarRef: ElementRef;
 
 
 	drawOpen: boolean = false;
 
 
 	constructor(
-    private spreadService: SpreadService
+    private spreadService: SpreadService,
+    private renderer2: Renderer2,
+    private elementRef: ElementRef,
+    private ngZone: NgZone,
   ){
 
 	}
@@ -49,6 +57,13 @@ export class SpreadComponent implements OnInit {
 		this.drawOpen = !this.drawOpen;
 	}
 
+  modify(){
+
+  }
+
+  show(){
+  }
+
 	/**
 	 * 电子表格初始化
 	 * @param {Object} $event
@@ -56,11 +71,38 @@ export class SpreadComponent implements OnInit {
 	workbookInit($event: any) {
 		this.spread = $event.spread;
 		this.sheet = this.spread.getActiveSheet();
-		this.initData(this.sheet);
+		// this.initData(this.sheet);
 		this.bindStatus(this.spread);
 		this.bindEvents(this.sheet);
+    this.renderData(this.sheet);
 		window.requestAnimationFrame(() => this.spread.refresh());
 	}
+
+	renderData(sheet: Worksheet){
+    let startTime = new Date().getTime();
+	  sheet.suspendPaint();
+	  for(let i = 0; i < 10000; i++){
+	    for (let j = 0; j < 100; j++){
+	      if(i >= sheet.getRowCount() - 50){
+	        sheet.addRows(i,50);
+        }
+        if(j >= sheet.getColumnCount() - 50){
+          sheet.addColumns(j,50);
+        }
+        const value = i * j;
+	      sheet.setValue(i,j,value);
+        // console.log(sheet.getColumnWidth(j));
+        // sheet.setColumnWidth(j,62);
+        // sheet.setRowHeight(i,24);
+        sheet.setStyle(i,j,null);
+        sheet.setTag(i,j,value);
+      }
+    }
+
+	  sheet.resumePaint();
+    let endTime = new Date().getTime();
+    console.log('渲染时间>>>',endTime - startTime);
+  }
 
 	/**
 	 * 将模拟数据填充到电子表格中
@@ -107,8 +149,22 @@ export class SpreadComponent implements OnInit {
 	 * @param {Workbook} spread  工作薄
 	 */
 	bindStatus(spread: Workbook): void{
-		const statusBar = new GC.Spread.Sheets.StatusBar.StatusBar(this.statusBar.nativeElement);
-        statusBar.bind(spread);
+		const statusBar = new GC.Spread.Sheets.StatusBar.StatusBar(this.statusBarRef.nativeElement);
+
+    this.statusBar = statusBar;
+    const sumStatusItem = statusBar.get('sum');
+    const  func = sumStatusItem.onUpdate;
+    const _func = (func: Function, argument,that) => {
+      console.log(argument,1111);
+      func.apply(that,argument);
+    }
+
+    sumStatusItem.onUpdate = function () {
+      _func(func,arguments,this);
+    }
+
+    console.log(sumStatusItem);
+    statusBar.bind(spread);
 	}
 
 	/**
@@ -116,7 +172,8 @@ export class SpreadComponent implements OnInit {
 	 * @param {Worksheet} sheet  工作表
 	 */
 	bindEvents(sheet: Worksheet): void{
-		this.spreadService.bindSelectionChanged(sheet);
+
+		this.spreadService.bindSelectionChanged(sheet,this.statusBar);
 	}
 
 	repaint(){
@@ -150,15 +207,6 @@ export class SpreadComponent implements OnInit {
    alert(`${key},${name}`);
   }
 }
-
-
-// const aa = (sheet?: Worksheet) => {
-
-//   return (target: Object, propertyKey: string | symbol, descriptor: any) => {
-//     const method = target.value;
-
-//   }
-// }
 
 
 

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
+import {Component, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 
 @Component({
   selector: 'app-ngx-table',
@@ -7,7 +7,9 @@ import {Component, Input, OnInit, TemplateRef} from '@angular/core';
 })
 export class NgxTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private viewContainer: ViewContainerRef
+  ) { }
 
   @Input() template: TemplateRef<{key: number,name: string}>;
 
@@ -17,7 +19,7 @@ export class NgxTableComponent implements OnInit {
     {test: '测试2',key: 3,name: '李四'}
   ];
 
-  ngOnInit(): void {
-  }
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+  ngOnInit(): void {}
 
 }

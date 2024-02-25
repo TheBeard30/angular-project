@@ -5,18 +5,28 @@ import { WorkflowComponent } from './workflow/workflow.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { WorkflowService } from './service/workflow.service';
 import { WhiteBoardComponent } from './white-board/white-board.component';
+import { DataTableWidget,ToolbarWidget,UndoWidget,RedoWidget } from './er/components';
+
+
+const ER_COMPONENTS = [
+  ERComponent,
+  DataTableWidget,
+  ToolbarWidget,
+  UndoWidget,
+  RedoWidget,
+];
 
 
 
 @NgModule({
   declarations: [
+    ...ER_COMPONENTS,
     WorkflowComponent,
-    ERComponent,
     WhiteBoardComponent,
   ],
   imports: [
     SharedModule,
-    GraphEditorRoutingModule, 
+    GraphEditorRoutingModule,
   ],
   providers: []
 })
